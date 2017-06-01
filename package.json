@@ -1,0 +1,24 @@
+{
+  "name": "vue-suggestions",
+  "version": "1.0.0",
+  "description": "Vue компонент для плагина сервиса Подсказок DaData.ru",
+  "main": "vue-suggestions.vue",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/evseevdev/vue-suggestions.git"
+  },
+  "keywords": [
+    "suggestions",
+    "vue.js"
+  ],
+  "author": "Vladimir Evseev",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/evseevdev/vue-suggestions/issues"
+  },
+  "homepage": "https://github.com/evseevdev/vue-suggestions#readme",
+  "dependencies": {
+    "jquery": "^3.2.1",
+    "suggestions-jquery": "^17.5.0"
+  }
+}
