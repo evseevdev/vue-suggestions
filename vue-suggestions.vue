@@ -25,12 +25,19 @@
       }
     },
     mounted() {
+      this.value = this.model;
       this.initSuggestion();
     },
     watch: {
+
       value() {
         this.$emit('update:model', this.value);
       },
+
+      model() {
+        this.value = this.model;
+      }
+
     },
     methods: {
 
@@ -42,7 +49,6 @@
       onSelect(suggestion) {
         this.value = suggestion.value;
       }
-
     }
   };
 </script>
