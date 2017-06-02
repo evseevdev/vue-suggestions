@@ -1,6 +1,6 @@
 {
   "name": "vue-suggestions",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Vue компонент для плагина сервиса Подсказок DaData.ru",
   "main": "vue-suggestions.vue",
   "repository": {

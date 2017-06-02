@@ -16,7 +16,7 @@ $ npm install vue-suggestions
 ```html
 <template>
   <div>
-    <VueSuggestions :model.sync="city" :options="suggestionOptions"></VueSuggestions>
+    <VueSuggestions :model.sync="city" :placeholder="'Начните вводить'" :class="form-control" :options="suggestionOptions"></VueSuggestions>
   </div>
 </template>
 

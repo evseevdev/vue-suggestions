@@ -1,5 +1,5 @@
 <template>
-  <input type="text" :class="className" v-model="value">
+  <input type="text" :class="className" :placeholder="placeholder" v-model="value">
 </template>
 
 <script>
@@ -12,6 +12,9 @@
         required: true
       },
       className: {
+        type: String
+      },
+      placeholder: {
         type: String
       },
       options: {
