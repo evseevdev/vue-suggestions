@@ -1,5 +1,5 @@
 <template>
-  <input type="text" :class="className" :placeholder="placeholder" v-model="value">
+  <input type="text" v-model="value">
 </template>
 
 <script>
@@ -10,12 +10,6 @@
     props: {
       model: {
         required: true
-      },
-      className: {
-        type: String
-      },
-      placeholder: {
-        type: String
       },
       options: {
         type: Object,
