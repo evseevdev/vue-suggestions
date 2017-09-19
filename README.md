@@ -16,7 +16,13 @@ $ npm install vue-suggestions
 ```html
 <template>
   <div>
-    <VueSuggestions :model.sync="city" :placeholder="'Начните вводить'" :class="form-control" :options="suggestionOptions"></VueSuggestions>
+    <VueSuggestions
+        :model.sync="city"
+        :coordinates.sync="coordinates"
+        :placeholder="'Начните вводить'"
+        :class="form-control"
+        :options="suggestionOptions">
+    </VueSuggestions>
   </div>
 </template>
 
@@ -27,6 +33,10 @@ $ npm install vue-suggestions
     data() {
       return {
         city: '',
+        coordinates: {
+          latitude: '',
+          longitude: ''
+        },
         suggestionOptions: {
           token: 'abcd123',
           type: "ADDRESS",
