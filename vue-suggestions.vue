@@ -34,13 +34,11 @@
       this.initSuggestion();
     },
     watch: {
-
-      'coords.latitude'() {
-        this.$emit('update:coordinates', this.coords);
-      },
-
-      'coords.longitude'() {
-        this.$emit('update:coordinates', this.coords);
+      coords: {
+        handler() {
+          this.$emit('update:coordinates', this.coords);
+        },
+        deep: true
       },
 
       value() {
@@ -61,8 +59,9 @@
 
       onSelect(suggestion) {
         this.value = suggestion.value;
-        this.coords.latitude = suggestion.data.geo_lat;
-        this.coords.longitude = suggestion.data.geo_lon;
+        const { geo_lat, geo_lon } = suggestion.data;
+        this.coords.latitude = geo_lat;
+        this.coords.longitude = geo_lon;
       }
     }
   };
