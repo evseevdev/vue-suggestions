@@ -11,6 +11,7 @@
       model: {
         required: true
       },
+      coordinates: {},
       options: {
         type: Object,
         default: {
@@ -21,7 +22,11 @@
     },
     data() {
       return {
-        value: ''
+        value: '',
+        coords: {
+          latitude: '',
+          longitude: ''
+        },
       }
     },
     mounted() {
@@ -29,6 +34,12 @@
       this.initSuggestion();
     },
     watch: {
+      coords: {
+        handler() {
+          this.$emit('update:coordinates', this.coords);
+        },
+        deep: true
+      },
 
       value() {
         this.$emit('update:model', this.value);
@@ -48,6 +59,9 @@
 
       onSelect(suggestion) {
         this.value = suggestion.value;
+        const { geo_lat, geo_lon } = suggestion.data;
+        this.coords.latitude = geo_lat;
+        this.coords.longitude = geo_lon;
       }
     }
   };
