@@ -30,6 +30,7 @@
       }
     },
     mounted() {
+      this.callbacks = jQuery.Callbacks();
       this.value = this.model;
       this.initSuggestion();
     },
@@ -56,7 +57,11 @@
     methods: {
 
       initSuggestion() {
-        const options = Object.assign({}, this.options, { onSelect: this.onSelect });
+        this.callbacks.add(this.onSelect)
+        this.callbacks.add(this.options.onSelect || jQuery.noop)
+        const options = Object.assign({}, this.options, {
+          onSelect: suggestion => this.callbacks.fire(suggestion)
+        });
         jQuery(this.$el).suggestions(options);
       },
 

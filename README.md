@@ -38,12 +38,17 @@ $ npm install vue-suggestions
           longitude: ''
         },
         suggestionOptions: {
+          // @see https://confluence.hflabs.ru/pages/viewpage.action?pageId=207454318
           token: 'abcd123',
           type: "ADDRESS",
           scrollOnFocus: false,
           triggerSelectOnBlur: false,
           triggerSelectOnEnter: false,
           addon: 'none',
+          // @see https://confluence.hflabs.ru/pages/viewpage.action?pageId=207454320
+          onSelect (suggestion) {
+            
+          }
         },
       }
     },
