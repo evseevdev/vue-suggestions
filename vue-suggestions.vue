@@ -33,6 +33,9 @@
       this.value = this.model;
       this.initSuggestion();
     },
+    destroyed() {
+      this.destroySuggestion();
+    },
     watch: {
       coords: {
         handler() {
@@ -55,6 +58,14 @@
       initSuggestion() {
         const options = Object.assign({}, this.options, { onSelect: this.onSelect });
         jQuery(this.$el).suggestions(options);
+      },
+
+      /**
+       * @see https://confluence.hflabs.ru/pages/viewpage.action?pageId=207454322
+       */
+      destroySuggestion() {
+        const plugin = jQuery(this.$el).suggestions();
+        plugin.dispose();
       },
 
       onSelect(suggestion) {
