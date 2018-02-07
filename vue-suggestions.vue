@@ -3,7 +3,7 @@
 </template>
 
 <script>
-  import $ from 'jquery';
+  import jQuery from 'jquery';
   import 'suggestions-jquery';
 
   export default {
@@ -54,7 +54,7 @@
 
       initSuggestion() {
         const options = Object.assign({}, this.options, { onSelect: this.onSelect });
-        $(this.$el).suggestions(options);
+        jQuery(this.$el).suggestions(options);
       },
 
       onSelect(suggestion) {
