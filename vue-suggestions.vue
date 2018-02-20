@@ -3,7 +3,7 @@
 </template>
 
 <script>
-  import jQuery from 'jquery';
+  import $ from 'jquery';
   import 'suggestions-jquery';
 
   export default {
@@ -30,7 +30,7 @@
       }
     },
     mounted() {
-      this.callbacks = jQuery.Callbacks();
+      this.callbacks = $.Callbacks();
       this.value = this.model;
       this.initSuggestion();
     },
@@ -58,18 +58,15 @@
 
       initSuggestion() {
         this.callbacks.add(this.onSelect)
-        this.callbacks.add(this.options.onSelect || jQuery.noop)
+        this.callbacks.add(this.options.onSelect || $.noop)
         const options = Object.assign({}, this.options, {
           onSelect: suggestion => this.callbacks.fire(suggestion)
         });
-        jQuery(this.$el).suggestions(options);
+        $(this.$el).suggestions(options);
       },
 
-      /**
-       * @see https://confluence.hflabs.ru/pages/viewpage.action?pageId=207454322
-       */
       destroySuggestion() {
-        const plugin = jQuery(this.$el).suggestions();
+        const plugin = $(this.$el).suggestions();
         plugin.dispose();
       },
 
