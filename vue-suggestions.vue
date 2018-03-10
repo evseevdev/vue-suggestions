@@ -30,8 +30,12 @@
       }
     },
     mounted() {
+      this.callbacks = $.Callbacks();
       this.value = this.model;
       this.initSuggestion();
+    },
+    destroyed() {
+      this.destroySuggestion();
     },
     watch: {
       coords: {
@@ -53,8 +57,17 @@
     methods: {
 
       initSuggestion() {
-        const options = Object.assign({}, this.options, { onSelect: this.onSelect });
+        this.callbacks.add(this.onSelect)
+        this.callbacks.add(this.options.onSelect || $.noop)
+        const options = Object.assign({}, this.options, {
+          onSelect: suggestion => this.callbacks.fire(suggestion)
+        });
         $(this.$el).suggestions(options);
+      },
+
+      destroySuggestion() {
+        const plugin = $(this.$el).suggestions();
+        plugin.dispose();
       },
 
       onSelect(suggestion) {
