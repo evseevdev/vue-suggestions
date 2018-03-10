@@ -9,7 +9,13 @@ Vue компонент для плагина сервиса Подсказок D
 ## npm
 
 ```shell
-$ npm install vue-suggestions
+$ npm install --save vue-suggestions
+```
+
+## yarn
+
+```shell
+$ yarn add vue-suggestions
 ```
 
 # Использование
