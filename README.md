@@ -26,7 +26,7 @@ $ yarn add vue-suggestions
         :model.sync="city"
         :coordinates.sync="coordinates"
         :placeholder="'Начните вводить'"
-        :class="form-control"
+        :class="'form-control'"
         :options="suggestionOptions">
     </VueSuggestions>
   </div>
