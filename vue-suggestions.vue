@@ -11,6 +11,7 @@
       model: {
         required: true
       },
+      city:{},
       coordinates: {},
       options: {
         type: Object,
@@ -69,6 +70,7 @@
         const { geo_lat, geo_lon } = suggestion.data;
         this.coords.latitude = geo_lat;
         this.coords.longitude = geo_lon;
+        this.$emit('update:city', suggestion.data.city);
       }
     }
   };
