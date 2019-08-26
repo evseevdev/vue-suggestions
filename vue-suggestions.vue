@@ -73,3 +73,5 @@
     }
   };
 </script>
+
+<style src="suggestions-jquery/dist/css/suggestions.min.css"></style>
